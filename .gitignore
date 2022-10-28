@@ -1,2 +1,7 @@
 *ToCopy.txt*
+
+*.class
 *.iml
+
+.idea/
+out/
