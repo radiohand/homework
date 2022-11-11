@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class StringsMain2 {
     public static void main(String[] args) {
+        System.out.println("Конвертация чисел с плавающей запятой в прописной формат.");
         System.out.println("Введите число от - 999.999.999,99 до 999.999.999,99");
         System.out.println(StringsConverter.toString(getUserDouble()));
     }
