@@ -45,7 +45,6 @@ public class Loops3 {
                 isInputCorrect = true;
             } else {
                 System.out.println("Введено не число");
-                console.next();
             }
         }
 
