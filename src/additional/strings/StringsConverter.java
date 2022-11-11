@@ -1,9 +1,16 @@
 package additional.strings;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class StringsConverter {
+
+    private static final String [] FROM_ONE_TO_TWENTY = {"один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять",
+            "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать",
+            "восемнадцать", "девятнадцать"};
+    private static final String [] DOZENS = {"", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят",
+            "девяносто"};
+    private static final String [] HUNDREDS = {"сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот",
+            "девятьсот"};
 
     /**
      * Получить строку, содержащую конвертацию числового аргумента (от -999_999_999 до 999_999_999) в число прописью
@@ -16,7 +23,7 @@ public class StringsConverter {
 
         StringBuilder builder = new StringBuilder();
 
-        int trio = 0;
+        int category = 0;
         boolean isThousand = false;
         boolean isNegative = false;
         String resultString;
@@ -37,17 +44,13 @@ public class StringsConverter {
 
         String [][] textNumbers = new String[3][];
 
-        textNumbers [0] = new String[] {"один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять",
-                "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать",
-                "восемнадцать", "девятнадцать"};
-        textNumbers [1] = new String[] {"", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят",
-                "девяносто"};
-        textNumbers [2] = new String[] {"сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот",
-                "девятьсот"};
+        textNumbers [0] = FROM_ONE_TO_TWENTY;
+        textNumbers [1] = DOZENS;
+        textNumbers [2] = HUNDREDS;
 
         while (number != 0) {
 
-            if (trio == 1) {
+            if (category == 1) {
                 if (number % 10 == 1) {
                     resultList.add("тысяча");
                 } else if ((number % 10 >= 2) && (number % 10 <=4)) {
@@ -58,7 +61,7 @@ public class StringsConverter {
                 isThousand = true;
             }
 
-            if (trio == 2) {
+            if (category == 2) {
                 if (number % 10 == 1) {
                     resultList.add("миллион");
                 } else if ((number % 10 >= 2) && (number % 10 <=4)) {
@@ -92,7 +95,7 @@ public class StringsConverter {
                 if (number == 0) {break;}
             }
             isThousand = false;
-            trio++;
+            category++;
         }
 
         if (isNegative) {
@@ -121,7 +124,7 @@ public class StringsConverter {
         StringBuilder builder = new StringBuilder();
 
         long longNumber;
-        int trio = 0;
+        int category = 0;
         boolean isFeminine = false;
         boolean isHundredths = false;
         boolean isNegative = false;
@@ -145,17 +148,13 @@ public class StringsConverter {
 
         String [][] textNumbers = new String[3][];
 
-        textNumbers [0] = new String[] {"один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять",
-                "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать",
-                "восемнадцать", "девятнадцать"};
-        textNumbers [1] = new String[] {"", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят",
-                "девяносто"};
-        textNumbers [2] = new String[] {"сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот",
-                "девятьсот"};
+        textNumbers [0] = FROM_ONE_TO_TWENTY;
+        textNumbers [1] = DOZENS;
+        textNumbers [2] = HUNDREDS;
 
         while (longNumber != 0) {
 
-            if (trio == 0) {
+            if (category == 0) {
                 if (longNumber % 100 == 0) {
                     resultList.add("ноль сотых");
                 } else if (longNumber % 10 == 1) {
@@ -167,7 +166,7 @@ public class StringsConverter {
                 isFeminine = true;
             }
 
-            if (trio == 1) {
+            if (category == 1) {
                 if (longNumber % 10 == 1) {
                     resultList.add("целая");
                 } else {
@@ -176,7 +175,7 @@ public class StringsConverter {
                 isFeminine = true;
             }
 
-            if (trio == 2) {
+            if (category == 2) {
                 if (longNumber % 10 == 1) {
                     resultList.add("тысяча");
                 } else if ((longNumber % 10 >= 2) && (longNumber % 10 <=4)) {
@@ -187,7 +186,7 @@ public class StringsConverter {
                 isFeminine = true;
             }
 
-            if (trio == 3) {
+            if (category == 3) {
                 if (longNumber % 10 == 1) {
                     resultList.add("миллион");
                 } else if ((longNumber % 10 >= 2) && (longNumber % 10 <=4)) {
@@ -224,7 +223,7 @@ public class StringsConverter {
             }
             isFeminine = false;
             isHundredths = false;
-            trio++;
+            category++;
         }
 
         if (isNegative) {
@@ -242,7 +241,96 @@ public class StringsConverter {
         return resultString.substring(0,1).toUpperCase() + resultString.substring(1);
     }
 
-    public static String toWeek (int day) { return "";}
+    /**
+     * Посчитать количество прошедших недель по переданному числу дней
+     * @param day число дней
+     * @return количество недель
+     */
+    public static String toWeek (int day) {
 
-    public static String toHoursMinuteSecondMillisecond (long millisecond, boolean shortFormat) { return "";}
+        String str;
+
+        int weeks = day/7;
+
+        if (weeks % 10 == 1) {
+            str = (weeks + " неделя");
+        } else if ((weeks % 10 >= 2) && (weeks % 10 <=4)) {
+            str = (weeks + " недели");
+        } else {
+            str = (weeks + " недель");
+        }
+
+        return str;
+}
+
+    /**
+     * Конвертировать переданные миллисекунды в количество часов, минут, секунд и миллисекунд
+     * @param millisecond количество миллисекунд
+     * @param shortFormat булево значение, определяющее формат конвертации:
+     *                    HH:mm:ss.SSS для true
+     *                    прописной формат для false.
+     * @return строка, содержащая результат конвертации
+     */
+    public static String toHoursMinuteSecondMillisecond (long millisecond, boolean shortFormat) {
+
+        String str;
+        StringBuilder builder = new StringBuilder();
+
+        long hours = millisecond/3_600_000;
+        millisecond -= hours * 3_600_000;
+        int minutes = (int) millisecond/60_000;
+        millisecond -= minutes * 60_000;
+        int seconds = (int) millisecond/1_000;
+        millisecond -= seconds * 1_000;
+        int millis = (int) millisecond;
+
+        if (shortFormat) {
+            str = String.format("%02d:%02d:%02d.%03d", hours, minutes, seconds, millis);
+        } else {
+
+            builder.append(hours).append(" ");
+            if (hours % 10 == 1) {
+                builder.append ("час");
+            } else if ((hours % 10 >= 2) && (hours % 10 <= 4)) {
+                builder.append("часа");
+            } else {
+                builder.append ("часов");
+            }
+            builder.append(" ");
+
+            builder.append(minutes).append(" ");
+            if (minutes % 10 == 1) {
+                builder.append ("минута");
+            } else if ((minutes % 10 >= 2) && (minutes % 10 <= 4)) {
+                builder.append("минуты");
+            } else {
+                builder.append ("минут");
+            }
+            builder.append(" ");
+
+            builder.append(seconds).append(" ");
+            if (seconds % 10 == 1) {
+                builder.append ("секунда");
+            } else if ((seconds % 10 >= 2) && (seconds % 10 <= 4)) {
+                builder.append("секунды");
+            } else {
+                builder.append ("секунд");
+            }
+            builder.append(" ");
+
+            builder.append(millis).append(" ");
+            if (millis % 10 == 1) {
+                builder.append ("миллисекунда");
+            } else if ((millis % 100 >= 11) && (millis % 100 <= 19)){
+                builder.append ("миллисекунд");
+            } else if ((millis % 10 >= 2) && (millis % 10 <= 4)) {
+                builder.append("миллисекунды");
+            } else {
+                builder.append ("миллисекунд");
+            }
+
+            str = builder.toString();
+        }
+       return str;
+    }
 }
