@@ -15,11 +15,11 @@ public class Branching4 {
         while (!isRightChoice) {
             switch (getUserInput()) {
                 case 1:
-                    System.out.println(num + " байт = " + (num / 1024.0) + " Кбайт");
+                    System.out.println(num + " байт = " + bytesToKilobytes(num) + " Кбайт");
                     isRightChoice = true;
                     break;
                 case 2:
-                    System.out.println(num + " Кбайт = " + (num * 1024.0) + " байт");
+                    System.out.println(num + " Кбайт = " + kilobytesToBytes(num) + " байт");
                     isRightChoice = true;
                     break;
                 default:
@@ -28,6 +28,27 @@ public class Branching4 {
             }
         }
     }
+
+    /**
+     * Перевести значение в байтах в килобайты
+     * @param bytes значение в байтах
+     * @return значение в килобайтах
+     */
+    public static int bytesToKilobytes (int bytes) {
+        if (bytes < 0 ) {return 0;}
+        return bytes/1024;
+    }
+
+    /**
+     * Перевести значение в килобайтах в байты
+     * @param kbytes значение в килобайтах
+     * @return значение в байтах
+     */
+    public static int kilobytesToBytes (int kbytes) {
+        if (kbytes < 0 ) {return 0;}
+        return kbytes*1024;
+    }
+
 
     /**
      * Получить проверенный на соответствие условиям пользовательский ввод.

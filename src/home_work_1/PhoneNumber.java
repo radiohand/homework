@@ -20,7 +20,9 @@ public class PhoneNumber {
      * @return Строка, содержащая отформатированную последовательность из цифр, переданных в качестве параметра
      */
     public static String createPhoneNumber (char [] phoneArray){
+
         StringBuilder phoneString = new StringBuilder();
+
         for (char digit : phoneArray)
         {
             phoneString.append(digit);

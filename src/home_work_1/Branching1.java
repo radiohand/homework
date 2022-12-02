@@ -12,10 +12,14 @@ public class Branching1 {
         //int a = (int) (Math.random()*Integer.MAX_VALUE);
 
         System.out.println("Выбрано случайное число: " + a);
-        if (a%2 != 0) {
-            System.out.println("Число является нечетным");
-        } else {
+        if (isEven(a)) {
             System.out.println("Число является четным");
+        } else {
+            System.out.println("Число является нечетным");
         }
+    }
+
+    public static boolean isEven (int a) {
+        return a % 2 == 0;
     }
 }

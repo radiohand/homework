@@ -1,25 +1,18 @@
 package home_work_1;
 
-import java.util.Scanner;
+import java.util.Objects;
 
-import static java.lang.System.*;
+public class UserName2 implements ICommunicationPrinter {
 
-public class UserName2 {
+    private static final String NAME_1 = "Вася";
+    private static final String NAME_2 = "Анастасия";
 
-    public static void main(String[] args) {
-
-        Scanner console = new Scanner(in);
-
-        String name1 = "Вася";
-        String name2 = "Анастасия";
-
-        out.println("Представьтесь: ");
-        String str = console.next();
-
-        if (str.equals(name1)) {
-            out.println("Привет! \nЯ тебя так долго ждал");
-        } else if (str.equals(name2)) {
-            out.println("Я тебя так долго ждал");
-        } else out.println("Добрый день, а вы кто?");
+    @Override
+    public String welcome(String name) {
+        if (Objects.equals(name, NAME_1)) {
+            return "Привет! \nЯ тебя так долго ждал";
+        } else if (Objects.equals(name, NAME_2)) {
+            return "Я тебя так долго ждал";
+        } else return ("Добрый день, а вы кто?");
     }
 }

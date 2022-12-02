@@ -6,24 +6,28 @@ public class Branching6 {
 
     public static void main(String[] args) {
 
-        boolean isLeapYear = false;
-
         System.out.println("Введите год для проверки: ");
         int year = getUserInput ();
 
-        if (year%4 == 0) {
-            if (year % 100 == 0) {
-                isLeapYear = (year % 400 == 0);
-            } else {
-                isLeapYear = true;
-            }
-        }
-
-        if (isLeapYear) {
+        if (isLeapYear(year)) {
             System.out.println("Год является високосным");
         } else {
             System.out.println("Год не является високосным");
         }
+    }
+
+    /**
+     * Определить является ли год високосным
+     * @param year год
+     * @return true, если високосный, иначе - false
+     */
+    public static boolean isLeapYear (int year) {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                return (year % 400 == 0);
+            } else return true;
+        }
+        return false;
     }
 
     /**

@@ -11,14 +11,24 @@ public class Branching5 {
         System.out.println("Введите символ для проверки: ");
         String str = console.next();
         char symb = str.charAt(0);
+
         System.out.println("Принят символ: " + symb);
 
+        System.out.println(isLetter(symb));
+    }
+
+    /**
+     * Определить, является ли принятый символ буквой, или иным символом
+     * @param symb обрабатываемый символ
+     * @return строка с сообщением о том, чем является принятый символ
+     */
+    public static String isLetter (char symb) {
         if (symb >= 'a' && symb <= 'z') {
-            System.out.println("Вы ввели букву в нижнем регистре");
+            return ("Вы ввели букву в нижнем регистре");
         } else if (symb >= 'A' && symb <= 'Z') {
-            System.out.println("Вы ввели букву в верхнем регистре");
+            return ("Вы ввели букву в верхнем регистре");
         } else {
-            System.out.println("Введенный символ не является буквой (латиница)");
+            return ("Введенный символ не является буквой (латиница)");
         }
     }
 }

@@ -24,7 +24,7 @@ public class MathExperiment {
     }
 
     /**
-     * Поулчить число π, рассчитанное по формуле Рамануджана.
+     * Получить число π, рассчитанное по формуле Рамануджана.
      * @param k количество элементов ряда Тейлора - нужно для вычисления числа π.
      * @return значение типа double, соответствующее рассчитанному числу π.
      */
@@ -45,7 +45,7 @@ public class MathExperiment {
      * @param num число, факториал которого необходимо получить
      * @return значение типа int, соответствующее рассчитанному факториалу.
      */
-    public static int getFactorial (int num) {
+    private static int getFactorial (int num) {
         if (num == 0) {
             return 1;
         }
@@ -56,10 +56,10 @@ public class MathExperiment {
      * Получить объем шара, рассчитанный по заданным параметрам.
      * @param pi число π, используемое в расчете объема шара
      * @param radius радиус шара, используемый в расчете объема.
-     * @return значение типа double, соответствующее рессчитанному объему.
+     * @return значение типа double, соответствующее рассчитанному объему.
      */
     public static double getVolume(int radius, double pi) {
-        return 4 / 3 * Math.pow (radius, 3) * pi;
+        return 4 / 3f * Math.pow (radius, 3) * pi;
     }
 
     /**

@@ -14,19 +14,39 @@ public class BitwiseOperations {
         System.out.println("Введите второе число: ");
         int b = getUserInput();
 
-        System.out.println("Результат выполнения оператора AND: " + (a&b));
+        System.out.println("Результат выполнения оператора AND: " + andOperator(a, b));
         /* a=18, b=107
         a = 0010010
         &
         b = 1101011
             0000010 (2) */
 
-        System.out.println("Результат выполнения оператора OR: " + (a|b));
+        System.out.println("Результат выполнения оператора OR: " + orOperator(a, b));
         /* x=18, z=107
         x = 0010010
         |
         y = 1101011
             1111011 (123) */
+    }
+
+    /**
+     * Получить результат выполнения оператора AND для двух чисел
+     * @param a первое число
+     * @param b второе число
+     * @return AND для a и b
+     */
+    public static int andOperator (int a, int b) {
+        return a&b;
+    }
+
+    /**
+     * Получить результат выполнения оператора OR для двух чисел
+     * @param a первое число
+     * @param b второе число
+     * @return OR для a и b
+     */
+    public static int orOperator (int a, int b) {
+        return a|b;
     }
 
     /**

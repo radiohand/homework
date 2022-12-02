@@ -1,29 +1,19 @@
 package home_work_1;
 
-import java.util.Scanner;
+public class UserName3 implements ICommunicationPrinter{
 
-public class UserName3 {
+    private static final String NAME_1 = "Вася";
+    private static final String NAME_2 = "Анастасия";
 
-    public static final String NAME_1 = "Вася";
-    public static final String NAME_2 = "Анастасия";
-
-    public static void main(String[] args) {
-
-        Scanner console = new Scanner(System.in);
-
-        System.out.println("Представьтесь: ");
-        String str = console.next();
-
-        switch (str) {
+    @Override
+    public String welcome(String name) {
+        switch (name) {
             case NAME_1:
-                System.out.println("Привет! \nЯ тебя так долго ждал");
-                break;
+                return ("Привет! \nЯ тебя так долго ждал");
             case NAME_2:
-                System.out.println("Я тебя так долго ждал");
-                break;
+                return ("Я тебя так долго ждал");
             default:
-                System.out.println("Добрый день, а вы кто?");
-                break;
+                return ("Добрый день, а вы кто?");
         }
     }
 }
