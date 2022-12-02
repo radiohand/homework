@@ -3,16 +3,9 @@
 
     public class Loops6v2 {
 
-        public static void main(String[] args) {
-
-            System.out.println("ТАБЛИЦА УМНОЖЕНИЯ");
-            printMultiTable(2,5);
-            printMultiTable(6,9);
-            System.out.println("ДИНОЗАВР");
-        }
-
         /**
          * Вывести в консоль таблицу умножения от 1 до 10 для чисел из заданного диапазона
+         * (с использованием StringBuilder)
          * @param a начало диапазона
          * @param b окончание диапазона
          */
