@@ -4,7 +4,7 @@ import home_work_2.utils.ArraysUtils;
 
 import java.util.Scanner;
 
-public class ArraysMain5 {
+public class ArraysFromPresentationMain {
 
     public static void main(String[] args) {
 

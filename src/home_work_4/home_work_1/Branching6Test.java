@@ -1,4 +1,4 @@
-package home_work_4.tests.home_work_1;
+package home_work_4.home_work_1;
 
 import home_work_1.Branching6;
 import org.junit.jupiter.api.Assertions;
