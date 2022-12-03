@@ -1,4 +1,4 @@
-package home_work_4.tests.home_work_2.loops;
+package home_work_4.home_work_2.loops;
 
 import static home_work_2.loops.Loops5.*;
 import org.junit.jupiter.api.Assertions;

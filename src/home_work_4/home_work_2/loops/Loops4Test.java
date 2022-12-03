@@ -1,4 +1,4 @@
-package home_work_4.tests.home_work_2.loops;
+package home_work_4.home_work_2.loops;
 
 import home_work_2.loops.Loops4;
 import org.junit.jupiter.api.Assertions;
