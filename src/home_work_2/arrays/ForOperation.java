@@ -1,43 +1,39 @@
 package home_work_2.arrays;
 
+import java.util.Locale;
+
 public class ForOperation implements IArraysOperation{
 
-    /**
-     * Вывести все элементы массива в консоль при помощи цикла for
-     * @param array массив, элементы которого нужно вывести в консоль
-     */
-    public void printAll (int [] array) {
+    public String printAll (int [] array) {
 
-        System.out.println("fori iteration: ");
+        StringBuilder builder = new StringBuilder();
+
         for (int k = 0; k < array.length; k++) {
-            System.out.print(array[k] + " ");
+            builder.append(array[k]);
+            if (k < array.length-1) { builder.append(" ");}
         }
-        System.out.println();
+        return builder.toString();
     }
 
-    /**
-     * Вывести каждый второй элемент массива в консоль при помощи цикла for
-     * @param array массив, элементы которого нужно вывести в консоль
-     */
-    public void printEverySecond (int [] array) {
+    public String printEverySecond (int [] array) {
 
-        System.out.println("fori iteration: ");
+        StringBuilder builder = new StringBuilder();
+
         for (int k = 1; k < array.length; k += 2) {
-            System.out.print(array[k] + " ");
+            builder.append(array[k]);
+            if (k < array.length-2) {builder.append(" ");}
         }
-        System.out.println();
+        return builder.toString();
     }
 
-    /**
-     * Вывести в обратном порядке все элементы массива в консоль при помощи цикла for
-     * @param array массив, элементы которого нужно вывести в консоль
-     */
-    public void printReverse (int [] array) {
+    public String printReverse (int [] array) {
 
-        System.out.println("fori iteration: ");
+        StringBuilder builder = new StringBuilder();
+
         for (int k = array.length; k > 0; k--) {
-            System.out.print(array[k-1] + " ");
+            builder.append(array[k-1]);
+            if (k > 1) {builder.append(" ");}
         }
-        System.out.println();
+        return builder.toString();
     }
 }

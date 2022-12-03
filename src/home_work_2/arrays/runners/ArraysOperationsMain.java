@@ -1,8 +1,12 @@
-package home_work_2.arrays;
+package home_work_2.arrays.runners;
 
+import home_work_2.arrays.DoWhileOperation;
+import home_work_2.arrays.ForEachOperation;
+import home_work_2.arrays.ForOperation;
+import home_work_2.arrays.WhileOperation;
 import home_work_2.utils.ArraysUtils;
 
-public class ArraysMain4 {
+public class ArraysOperationsMain {
 
     public static void main(String[] args) {
 

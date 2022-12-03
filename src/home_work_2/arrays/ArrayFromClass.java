@@ -1,26 +1,6 @@
 package home_work_2.arrays;
 
-import java.util.Scanner;
-
 public class ArrayFromClass {
-    public static void main(String[] args) {
-        Scanner console = new Scanner(System.in);
-        System.out.println("Введите размер массива: ");
-        int count = console.nextInt();
-        
-        int [] array = new int[count];
-
-        for (int i = 0; i < array.length; i++) {
-            System.out.println("Введите число для ячейки: ");
-            array[i] = console.nextInt();
-        }
-
-        printArray(array);
-
-        sort(array);
-
-        printArray(array);
-    }
 
     public static void sort (int [] array) {
         int buffer;
@@ -35,10 +15,18 @@ public class ArrayFromClass {
         }
     }
 
-    public static void printArray (int [] array) {
+    public static String printArray (int [] array) {
+
+        StringBuilder builder = new StringBuilder();
+
+        boolean isFirstIter = true;
+
         for (int element : array) {
-            System.out.print(element + " ");
+            if (isFirstIter) {
+                builder.append(element);
+                isFirstIter = false;
+            } else {builder.append(" ").append(element);}
         }
-        System.out.println();
+        return builder.toString();
     }
 }

@@ -1,8 +1,9 @@
-package home_work_2.arrays;
+package home_work_2.arrays.runners;
 
+import home_work_2.arrays.ArraysIteration;
 import home_work_2.utils.ArraysUtils;
 
-public class ArraysMain3 {
+public class ArraysIterationMain {
 
     public static void main(String[] args) {
 

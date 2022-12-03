@@ -2,51 +2,51 @@ package home_work_2.arrays;
 
 public class DoWhileOperation implements IArraysOperation {
 
-    /**
-     * Вывести все элементы массива в консоль при помощи цикла do....while
-     * @param array массив, элементы которого нужно вывести в консоль
-     */
-    public void printAll (int [] array) {
+    public String printAll (int [] array) {
+
+        StringBuilder builder = new StringBuilder();
 
         int i = 0;
 
-        System.out.println("do-while iteration: ");
+        if (array.length == 0) {return "";}
+
         do {
-            System.out.print(array[i] + " ");
-            i++;
+            builder.append(array[i]);
+            if (i != array.length-1) {builder.append(" ");}
+            i ++;
         } while (i < array.length);
-        System.out.println();
+        return builder.toString();
     }
 
-    /**
-     * Вывести каждый второй элемент массива в консоль при помощи цикла do....while
-     * @param array массив, элементы которого нужно вывести в консоль
-     */
-    public void printEverySecond (int [] array) {
+    public String printEverySecond (int [] array) {
+
+        StringBuilder builder = new StringBuilder();
 
         int i = 1;
 
-        System.out.println("do-while iteration: ");
+        if (array.length == 0) {return "";}
+
         do {
-            System.out.print(array[i] + " ");
+            builder.append(array[i]);
+            if (i < array.length-2) {builder.append(" ");}
             i += 2;
         } while (i < array.length);
-        System.out.println();
+        return builder.toString();
     }
 
-    /**
-     * Вывести в обратном порядке все элементы массива в консоль при помощи цикла do....while
-     * @param array массив, элементы которого нужно вывести в консоль
-     */
-    public void printReverse (int [] array) {
+    public String printReverse (int [] array) {
+
+        StringBuilder builder = new StringBuilder();
 
         int i = array.length;
 
-        System.out.println("do-while iteration: ");
+        if (array.length == 0) {return "";}
+
         do {
-            System.out.print(array[i - 1] + " ");
+            builder.append(array[i - 1]);
+            if (i != 1) {builder.append(" ");}
             i--;
         } while (i > 0);
-        System.out.println();
+        return builder.toString();
     }
 }

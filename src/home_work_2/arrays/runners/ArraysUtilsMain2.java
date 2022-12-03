@@ -1,10 +1,8 @@
-package home_work_2.arrays;
+package home_work_2.arrays.runners;
 
 import home_work_2.utils.ArraysUtils;
 
-import java.util.Scanner;
-
-public class ArraysMain2 {
+public class ArraysUtilsMain2 {
 
     public static void main(String[] args) {
 
