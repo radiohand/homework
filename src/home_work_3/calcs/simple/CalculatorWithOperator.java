@@ -54,6 +54,11 @@ public class CalculatorWithOperator implements ICalculator {
 
         double result = 1;
 
+        if (b < 0) {
+            a = 1/a;
+            b = -b;
+        }
+
         for (int i = 0; i < b; i++) {
             result *= a;
         }
@@ -78,6 +83,8 @@ public class CalculatorWithOperator implements ICalculator {
      * @return квадратный корень
      */
     public double squareRoot (double a) {
+
+        if (a < 0) {return Double.NaN;}
 
         double x0 = a;
         double x1;
