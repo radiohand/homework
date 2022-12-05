@@ -19,19 +19,20 @@ public class CalculatorStringExpression {
      * для валидных данных произвести расчет, вернуть результат типа double.
      * При выявлении невалидных данных, вывести в консоль сообщение об ошибке, вернуть число 0 (double).
      * @param str строка, содержащая математическое выражение для расчета.
-     * @return результат, либо 0.
+     * @return результат, либо Double.NaN.
      */
     public double getResult (String str) {
 
         stringToParse = str;
+        double result;
 
         stringToList();
 
-        if (checkString () && checkList()) {
-            return Double.parseDouble(calculate(units));
-        } else {
-            return 0;
-        }
+        if (checkString() && checkList()) {
+            result = Double.parseDouble(calculate(units));
+        } else {result = Double.NaN;}
+        units.clear();
+        return result;
     }
 
     /**
@@ -44,7 +45,7 @@ public class CalculatorStringExpression {
         int bracketCounter = 0;
         int modCounter = 0;
 
-        if (!stringToParse.matches("[ 0-9.^|()*/+-]+")) {
+        if (!stringToParse.matches("[ EPI0-9.^|()*/+-]+")) {
             System.out.println("Ошибка! В выражении присутствуют недопустимые символы!");
             return false;
         }
@@ -67,7 +68,8 @@ public class CalculatorStringExpression {
     }
 
     /**
-     * Проверить не содержит ли список units идущих подряд чисел или операторов.
+     * Проверить не содержит ли список units идущих подряд чисел или операторов,
+     * операторов открывающих, или закрывающих выражение.
      * @return true, если проверка пройдена; иначе - false.
      * При выявлении несоответствия выводится сообщение в консоль.
      */
@@ -76,7 +78,7 @@ public class CalculatorStringExpression {
         int operatorCounter = 0;
 
         for (String unit: units) {
-            if (unit.matches("-?[0-9.]+")) {
+            if (unit.matches("-?[EPI0-9.]+")) {
                 operatorCounter = 0;
                 numCounter ++;
             } else if (unit.matches("[-+*/^]")) {
@@ -85,9 +87,14 @@ public class CalculatorStringExpression {
             }
 
             if (numCounter > 1 || operatorCounter > 1) {
-                System.out.println("Ошибка! Выражение невалидно!");
+                System.out.println("Ошибка! Некорректный порядок операторов или операндов!");
                 return false;
             }
+        }
+
+        if (units.get(0).matches("[-+*/^]") || units.get(units.size()-1).matches("[-+*/^]")) {
+            System.out.println("Ошибка! Некорректный порядок операторов или операндов!");
+            return false;
         }
         return true;
     }
@@ -134,8 +141,7 @@ public class CalculatorStringExpression {
      */
     private String calculate (ArrayList <String> units) {
 
-        while (units.size() > 1) {
-
+        do {
             handleConst(units);
             handleMod(units);
             handleBrackets(units);
@@ -144,7 +150,7 @@ public class CalculatorStringExpression {
             handleDivide (units);
             handleAddition (units);
             handleSubtracting(units);
-        }
+        } while (units.size() > 1);
         return units.get(0);
     }
 
