@@ -14,14 +14,14 @@ public class StringsGenerator {
      * @param length длина строки
      * @return рандомная строка
      */
-    public String setStringUnicodeRandom (int length) {
+    public String getStringUnicodeRandom(int length) {
 
         StringBuilder builder = new StringBuilder();
         Random rand = new Random();
 
         for (int i = 0; i < length; i++) {
-            int nextCharCode = rand.nextInt(Character.MAX_CODE_POINT);
-            builder.appendCodePoint(nextCharCode);
+            char nextChar = (char) rand.nextInt(Character.MAX_CODE_POINT);
+            builder.append(nextChar);
         }
 
         return builder.toString();
@@ -34,7 +34,7 @@ public class StringsGenerator {
      * @param length длина строки
      * @return рандомная строка из букв
      */
-    public String setStringAlphabeticRandom (int alphabetStartSymbol, int alphabetRange, int length) {
+    public String getStringAlphabeticRandom(int alphabetStartSymbol, int alphabetRange, int length) {
 
         StringBuilder builder = new StringBuilder();
         Random rand = new Random();
@@ -45,7 +45,7 @@ public class StringsGenerator {
                 i--;
                 continue;
             }
-            builder.appendCodePoint(nextChar);
+            builder.append(nextChar);
         }
 
         return builder.toString();
@@ -53,14 +53,14 @@ public class StringsGenerator {
 
     /**
      * Получить строку с рандомным индексом из переданного массива
-     * @param names принимаемый массив
+     * @param strings принимаемый массив
      * @return строка из массива
      */
-    public String setStringRandomName (String [] names) {
+    public String getStringRandomFromArray(String [] strings) {
 
         Random rand = new Random();
 
-        return names [rand.nextInt(names.length)];
+        return strings [rand.nextInt(strings.length)];
     }
 
     /**
@@ -68,7 +68,7 @@ public class StringsGenerator {
      * @param file принимаемый файл
      * @return строка из файла
      */
-    public String setStringFromFileRandom (File file) {
+    public String getStringRandomFromFile(File file) {
 
         Random random = new Random();
         ArrayList<String> list = new ArrayList<>();

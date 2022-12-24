@@ -12,6 +12,8 @@ public class PersonCreator {
     private String password;
     private String name;
 
+    public PersonCreator() {}
+
     private final String [] namesArray = new String[]
     {"Петя", "Вася", "Саша", "Гоша", "Ваня", "Маша", "Света", "Вика", "Аня", "Юля"};
 
@@ -31,7 +33,7 @@ public class PersonCreator {
      * Инициализировать поле 'name' строкой из произвольных символов
      */
     public void setNameFullRandom () {
-        this.name = generator.setStringUnicodeRandom(10);
+        this.name = generator.getStringUnicodeRandom(10);
     }
 
     /**
@@ -39,28 +41,28 @@ public class PersonCreator {
      */
     public void setNameRussianRandom () {
 
-        this.name = generator.setStringAlphabeticRandom('А', 63, 10);
+        this.name = generator.getStringAlphabeticRandom('А', 63, 10);
     }
 
     /**
      * Инициализировать поле 'name' произвольным именем из массива
      */
     public void setRealNameRandom () {
-        this.name = generator.setStringRandomName(namesArray);
+        this.name = generator.getStringRandomFromArray(namesArray);
     }
 
     /**
      * Инициализировать поле 'name' произвольным именем из файла
      */
     public void setNameFromFile () {
-        this.name = generator.setStringFromFileRandom(namesFile);
+        this.name = generator.getStringRandomFromFile(namesFile);
     }
 
     /**
      * Инициализировать поле 'nick' строкой из произвольных символов
      */
     public void setNickFullRandom () {
-        this.nick = generator.setStringUnicodeRandom(10);
+        this.nick = generator.getStringUnicodeRandom(10);
     }
 
     /**
@@ -68,14 +70,14 @@ public class PersonCreator {
      */
     public void setNickEnglishRandom () {
 
-        this.nick = generator.setStringAlphabeticRandom('A', 57, 10);
+        this.nick = generator.getStringAlphabeticRandom('A', 57, 10);
     }
 
     /**
      * Инициализировать поле 'nick' произвольным именем из файла
      */
     public void setNickFromFile () {
-        this.nick = generator.setStringFromFileRandom(nickNamesFile);
+        this.nick = generator.getStringRandomFromFile(nickNamesFile);
     }
 
     /**

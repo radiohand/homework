@@ -27,7 +27,7 @@ public class AnimalCreator {
      * Инициализировать поле 'nick' строкой из произвольных символов
      */
     public void setNickFullRandom () {
-        this.nick = generator.setStringUnicodeRandom(10);
+        this.nick = generator.getStringUnicodeRandom(10);
     }
 
     /**
@@ -35,21 +35,21 @@ public class AnimalCreator {
      */
     public void setNickRussianRandom () {
 
-        this.nick = generator.setStringAlphabeticRandom('А', 63, 10);
+        this.nick = generator.getStringAlphabeticRandom('А', 63, 10);
     }
 
     /**
      * Инициализировать поле 'nick' произвольной строкой из массива
      */
     public void setRealNickRandom () {
-        this.nick = generator.setStringRandomName(nicksArray);
+        this.nick = generator.getStringRandomFromArray(nicksArray);
     }
 
     /**
      * Инициализировать поле 'nick' произвольной строкой из файла
      */
     public void setNickFromFile () {
-        this.nick = generator.setStringFromFileRandom(nicksFile);
+        this.nick = generator.getStringRandomFromFile(nicksFile);
     }
 
     /**
