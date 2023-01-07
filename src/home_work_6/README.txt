@@ -22,4 +22,8 @@ Task 7 - runners\WithFilesMain.java; source\result.txt; source\Stephen_King\...
 
 !!!Added after deadline:
 
-README.txt
+- README.txt
+
+- fixed - searchers\SearchEngineCaseNormalizer.java;
+
+- test for SearchEngineCaseNormalizer - tests\SearchEngineCaseNormalizerTest.java
