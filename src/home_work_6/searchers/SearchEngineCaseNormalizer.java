@@ -50,10 +50,17 @@ public class SearchEngineCaseNormalizer implements ISearchEngine {
             }
         }
 
+        ArrayList <String> specificCaseEndings = new ArrayList<>();
         for (int i = 1; i <= 6; i++) {
             for (String ending : everyCaseEndings.get(i)) {
-                counter += searchEngine.search(text, word+ending);
+                if (!specificCaseEndings.contains(ending)) {
+                    specificCaseEndings.add(ending);
+                }
             }
+        }
+
+        for (String ending : specificCaseEndings) {
+            counter += searchEngine.search(text, word+ending);
         }
         counter += searchEngine.search(text, word);
 
