@@ -5,7 +5,7 @@ import java.util.*;
 
 public class TextFileUtils {
 
-    private static final String SPLIT_REGEX = "[ ,.:;\n]";
+    private static final String SPLIT_REGEX = "(^|[^\\p{L}\\p{Mn}\\p{Nd}\\p{Pc}-]|(--)|(\\s-)|$)+";
 
     /**
      * Заполнить множество словами из переданного файла, вернуть количество уникальных слов
@@ -45,7 +45,7 @@ public class TextFileUtils {
         list.sort(new EntryIntegerValueComparator());
         Collections.reverse(list);
 
-        return list.subList(0, topSize-1);
+        return list.subList(0, topSize);
     }
 
     /**
